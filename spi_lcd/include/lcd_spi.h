@@ -71,6 +71,9 @@ void GPIO_SET(int fd, uint pin, uint val);
 #endif  //IS_SERV_AR9344
 */
 
+
+
+
 #define GPIO_SPI_LCD_CS       8   //AR9344_AE4_PCB_J27_PIN_02   default JTAG_TDI
 #define GPIO_SPI_LCD_RST      23   //AR9344_R27_PCB_J27_PIN_03   default JTAG_TCK
 #define GPIO_SPI_LCD_DCX      18   //AR9344_R27_PCB_J27_PIN_04   default JTAG_TDO
@@ -82,6 +85,11 @@ void GPIO_SET(int fd, uint pin, uint val);
 #define AR934X_GPIO_COUNT           23
 bool GPIO_GET(int fd, uint pin);
 void GPIO_SET(int fd, uint pin, uint val);
+#define QCA956X_GPIO_COUNT          23
+#define AR933X_GPIO_COUNT           30
+
+
+
 
 #define SPI_DCX_NONE            -1
 #define SPI_DCX_DATA            1
