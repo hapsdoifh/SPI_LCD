@@ -27,8 +27,8 @@
 #include "lcd_ili9341_font.h"
 #include "touch_ads7843.h"
 
-static const char *static_device_lcd = "/dev/spidev1.0";
-static const char *static_device_touch = "/dev/spidev1.1";
+static const char *static_device_lcd = "/dev/spidev0.0";
+static const char *static_device_touch = "/dev/spidev0.1";
 
 #define LCD_TYPE_NONE       0x00
 #define LCD_TYPE_OMCJ4X8C   0x01
