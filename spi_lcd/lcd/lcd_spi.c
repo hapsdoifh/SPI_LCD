@@ -119,11 +119,11 @@ int Spi_setting(int fd) {
         /*
          * max speed hz
          */
-        ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &static_speed);
+        ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ/2, &static_speed);
         if (ret == -1)
             pabort("can't set max speed hz");
 
-        ret = ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &static_speed);
+        ret = ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ/2, &static_speed);
         if (ret == -1)
             pabort("can't get max speed hz");
 

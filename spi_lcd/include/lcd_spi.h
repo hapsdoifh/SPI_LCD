@@ -86,7 +86,6 @@ void GPIO_SET(int fd, uint pin, uint val);
 bool GPIO_GET(int fd, uint pin);
 void GPIO_SET(int fd, uint pin, uint val);
 #define QCA956X_GPIO_COUNT          23
-#define AR933X_GPIO_COUNT           30
 
 
 
