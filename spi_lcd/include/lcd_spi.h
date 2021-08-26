@@ -82,10 +82,9 @@ void GPIO_SET(int fd, uint pin, uint val);
 #define GPIO_SPI_SCK          11  //AR9344_N27_PCB_J27_PIN_09
 #define GPIO_SPI_TCH_CS       4  //AR9344_N25_PCB_J27_PIN_10
 #define GPIO_SPI_TCH_BUSY     17  //AR9344_M26_PCB_J27_PIN_11   Input only
-#define AR934X_GPIO_COUNT           23
 bool GPIO_GET(int fd, uint pin);
 void GPIO_SET(int fd, uint pin, uint val);
-#define QCA956X_GPIO_COUNT          23
+#define QCA956X_GPIO_COUNT          40
 
 
 
