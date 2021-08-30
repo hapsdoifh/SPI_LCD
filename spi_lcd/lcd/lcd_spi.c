@@ -24,7 +24,7 @@ static bool static_from_file = FALSE;
 static uint static_debug = FALSE;
 static uchar static_mode;
 static uchar static_bits = 8;
-static uint static_speed = 1000000;
+static uint static_speed = 100000;
 static uint16 static_delay;
 
 static uint SPI_DEBUG_RECV[] = {
