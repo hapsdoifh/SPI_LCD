@@ -51,6 +51,7 @@ void GPIO_SET(int fd, uint pin, uint val) {
     if (0 <= pin && pin < MAX_GPIO_PIN) {
         uint val_pin = (val ? SPI_DCX_BIT_SIGNAL : 0) | pin;
         ioctl(fd, SPI_IOC_WR_SIGNAL_DCX, &val_pin);
+        printf("pin is: %d  -----  val is: %d  -----  val_pin is:%d\n", pin, val, val_pin);
     }
 }
 
@@ -67,7 +68,7 @@ bool GPIO_GET(int fd, uint pin) {
 void Spi_Set_DCX(int fd, uchar dcx) {
     if (dcx != SPI_DCX_NONE) {
         GPIO_SET(fd, GPIO_SPI_LCD_DCX, dcx);
-        printf("DCX PIN IS:%d   ------ AND DCX IS: %d\n", GPIO_SPI_LCD_DCX, dcx);
+    //    printf("DCX PIN IS:%d   ------ AND DCX IS: %d\n", GPIO_SPI_LCD_DCX, dcx);
     }
 }
 
