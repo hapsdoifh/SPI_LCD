@@ -67,6 +67,7 @@ bool GPIO_GET(int fd, uint pin) {
 void Spi_Set_DCX(int fd, uchar dcx) {
     if (dcx != SPI_DCX_NONE) {
         GPIO_SET(fd, GPIO_SPI_LCD_DCX, dcx);
+        printf("DCX SET\n");
     }
 }
 
