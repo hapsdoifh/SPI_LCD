@@ -188,7 +188,7 @@ int main(int argc, char *argv[]) {
     static int static_fd_tch = -1;
     uint8_t mode = 0;
 
-    //parse_opts(argc, argv);
+    parse_opts(argc, argv);
 
     static_fd_lcd = open(static_device_lcd, O_RDWR);
     if (static_fd_lcd < 0)
@@ -207,7 +207,7 @@ int main(int argc, char *argv[]) {
                 usleep(3000000);
             }
 #elif (LCD_TYPE == LCD_TYPE_ILI9341)
-            //static_fd_tch = open(static_device_touch, O_RDWR);
+            static_fd_tch = open(static_device_touch, O_RDWR);
             lcd_ili9341_BACK_COLOR = LCD_ILI9341_BLACK;
             lcd_ili9341_POINT_COLOR = LCD_ILI9341_WHITE;
             Lcd_ili9341_Init(static_fd_lcd); //tft初始化

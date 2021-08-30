@@ -24,7 +24,7 @@ static bool static_from_file = FALSE;
 static uint static_debug = FALSE;
 static uchar static_mode;
 static uchar static_bits = 8;
-static uint static_speed = 100000;
+static uint static_speed = 1000000;
 static uint16 static_delay;
 
 static uint SPI_DEBUG_RECV[] = {
@@ -50,8 +50,6 @@ static uint SPI_DEBUG_SEND[] = {
 void GPIO_SET(int fd, uint pin, uint val) {
     if (0 <= pin && pin < MAX_GPIO_PIN) {
         uint val_pin = (val ? SPI_DCX_BIT_SIGNAL : 0) | pin;
-        printf ("pin : %d\n", pin);
-        printf ("val_pin : %d\n\n", val_pin);
         ioctl(fd, SPI_IOC_WR_SIGNAL_DCX, &val_pin);
     }
 }
@@ -121,11 +119,11 @@ int Spi_setting(int fd) {
         /*
          * max speed hz
          */
-        ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ/2, &static_speed);
+        ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &static_speed);
         if (ret == -1)
             pabort("can't set max speed hz");
 
-        ret = ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ/2, &static_speed);
+        ret = ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &static_speed);
         if (ret == -1)
             pabort("can't get max speed hz");
 

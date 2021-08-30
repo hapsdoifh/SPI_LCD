@@ -33,7 +33,7 @@ extern "C" {
 #define MACH_AR934X         0
 #define MACH_AR953X         0
 #define MACH_QCA956X        1
-/*
+
 #if (MACH_AR934X)
 //#define PLATFORM        "/sys/devices/platform/"
 //#define IF_LED          PLATFORM "leds-gpio/leds/gh0228:"
@@ -69,25 +69,6 @@ void GPIO_SET(int fd, uint pin, uint val);
 #define GPIO_SET(int fd, name,val)      do {} while(0)
 #define GPIO_GET(name)          (0)
 #endif  //IS_SERV_AR9344
-*/
-
-
-
-
-#define GPIO_SPI_LCD_CS       8   //AR9344_AE4_PCB_J27_PIN_02   default JTAG_TDI
-#define GPIO_SPI_LCD_RST      23   //AR9344_R27_PCB_J27_PIN_03   default JTAG_TCK
-#define GPIO_SPI_LCD_DCX      18   //AR9344_R27_PCB_J27_PIN_04   default JTAG_TDO
-#define GPIO_SPI_MOSI         10  //AR9344_AE4_PCB_J27_PIN_05   default JTAG_TMS
-#define GPIO_SPI_MISO         9   //AR9344_AG5_PCB_J27_PIN_06   Input only
-#define GPIO_SPI_SCK          11  //AR9344_N27_PCB_J27_PIN_09
-#define GPIO_SPI_TCH_CS       4  //AR9344_N25_PCB_J27_PIN_10
-#define GPIO_SPI_TCH_BUSY     17  //AR9344_M26_PCB_J27_PIN_11   Input only
-bool GPIO_GET(int fd, uint pin);
-void GPIO_SET(int fd, uint pin, uint val);
-#define QCA956X_GPIO_COUNT          40
-
-
-
 
 #define SPI_DCX_NONE            -1
 #define SPI_DCX_DATA            1
