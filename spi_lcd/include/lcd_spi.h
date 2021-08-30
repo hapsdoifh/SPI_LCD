@@ -57,8 +57,8 @@ void GPIO_SET(int fd, uint pin, uint val);
 #define GPIO_SPI_SCK            16	//by default JTAG_TCK
 #define GPIO_SPI_LCD_CS         15	//by default JTAG_TMS
 #define GPIO_SPI_MOSI           14	//by default JTAG_TDI
-#define GPIO_SPI_LCD_DCX	7	//
-#define GPIO_SPI_LCD_RST	6	//
+#define GPIO_SPI_LCD_DCX	18	//
+#define GPIO_SPI_LCD_RST	4	//
 #define GPIO_SPI_TCH_CS         5	//
 #define GPIO_SPI_TCH_BUSY	1	//
 #define QCA956X_GPIO_COUNT          23
