@@ -1,0 +1,74 @@
+--- a/arch/mips/ath79/mach-wpj563.c
++++ b/arch/mips/ath79/mach-wpj563.c
+@@ -22,6 +22,7 @@
+ #include <linux/ath9k_platform.h>
+ #include <linux/ar8216_platform.h>
+ #include <asm/mach-ath79/ar71xx_regs.h>
++#include <linux/spi/spi_gpio.h>
+ 
+ #include "common.h"
+ #include "dev-m25p80.h"
+@@ -111,13 +112,61 @@
+ 	},
+ };
+ 
++
++//HARRY
++
++static struct spi_board_info spi_gpio_info[] = {
++	{
++		.bus_num = 1, //bus 0 taken by flash
++		.chip_select = 0,
++		.max_speed_hz	= 10000000,
++		.modalias	= "spidev",
++		.mode = SPI_MODE_0,
++		.controller_data = (void*) 15,
++	},
++	{
++		.bus_num = 1,
++		.chip_select = 1,
++		.max_speed_hz	= 10000000,
++		.modalias	= "spidev",
++		.mode = SPI_MODE_0,
++		.controller_data = (void*) 5,
++	}
++};
++
++static struct spi_gpio_platform_data spi_gpio_plat_data = {
++	.sck = 16,
++	.mosi = 14,
++	.miso = 17,
++	.num_chipselect = 2,
++
++	//added code
++	.dcx = 6,
++	.busy = 5,
++};
++
++static struct platform_device spi_gpio_device = {
++	.name		= "spi_gpio",
++	.id		= 1,
++	.dev.platform_data = &spi_gpio_plat_data,
++};
++
++static void __init wpj563_gpio_spi_setup(void){
++	spi_register_board_info(spi_gpio_info, ARRAY_SIZE(spi_gpio_info));
++	platform_device_register(&spi_gpio_device);	
++}
++//HARRY
++
++
+ static void __init WPJ563_setup(void)
+ {
+ 	u8 *art = (u8 *) KSEG1ADDR(0x1fff0000);
+ 	u8 *mac = (u8 *) KSEG1ADDR(0x1f02e000);
+ 
+ 	ath79_register_m25p80(NULL);
+-
++	//harry
++	wpj563_gpio_spi_setup();
++	//harry
+ 	ath79_register_leds_gpio(-1, ARRAY_SIZE(WPJ563_leds_gpio),
+ 				 WPJ563_leds_gpio);
+ 	ath79_register_gpio_keys_polled(-1, WPJ563_KEYS_POLL_INTERVAL,
+

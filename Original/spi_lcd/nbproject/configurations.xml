@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles" displayName="头文件" projectFiles="true">
+      <itemPath>include/lcd_ili9341.h</itemPath>
+      <itemPath>include/lcd_ili9341_font.h</itemPath>
+      <itemPath>include/lcd_omcj4x8c_16.h</itemPath>
+      <itemPath>include/lcd_omcj4x8c_font.h</itemPath>
+      <itemPath>include/lcd_spi.h</itemPath>
+      <itemPath>include/touch_ads7843.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles" displayName="源文件" projectFiles="true">
+      <logicalFolder name="f1" displayName="lcd" projectFiles="true">
+        <itemPath>lcd/lcd_author_name.c</itemPath>
+        <itemPath>lcd/lcd_ili9341.c</itemPath>
+        <itemPath>lcd/lcd_ili9341_font.c</itemPath>
+        <itemPath>lcd/lcd_ili9341_font_brandname_eng.c</itemPath>
+        <itemPath>lcd/lcd_ili9341_image_logo.c</itemPath>
+        <itemPath>lcd/lcd_omcj4x8c_16.c</itemPath>
+        <itemPath>lcd/lcd_omcj4x8c_font.c</itemPath>
+        <itemPath>lcd/lcd_spi.c</itemPath>
+        <itemPath>lcd/touch_ads7843.c</itemPath>
+      </logicalFolder>
+      <itemPath>main.c</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles" displayName="资源文件" projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="测试文件"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="重要文件"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>GNU_MIPS_1907|GNU</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>include</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="include/lcd_ili9341.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lcd_ili9341_font.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lcd_omcj4x8c_16.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lcd_omcj4x8c_font.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lcd_spi.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/touch_ads7843.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lcd/lcd_author_name.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/lcd_ili9341.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/lcd_ili9341_font.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/lcd_ili9341_font_brandname_eng.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lcd/lcd_ili9341_image_logo.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/lcd_omcj4x8c_16.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/lcd_omcj4x8c_font.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/lcd_spi.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/touch_ads7843.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>GNU_MIPS_1907|GNU</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <incDir>
+            <pElem>include</pElem>
+          </incDir>
+        </cTool>
+      </compileType>
+      <item path="include/lcd_ili9341.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lcd_ili9341_font.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lcd_omcj4x8c_16.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lcd_omcj4x8c_font.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lcd_spi.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/touch_ads7843.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="lcd/lcd_author_name.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/lcd_ili9341.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/lcd_ili9341_font.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/lcd_ili9341_font_brandname_eng.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="lcd/lcd_ili9341_image_logo.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/lcd_omcj4x8c_16.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/lcd_omcj4x8c_font.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/lcd_spi.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="lcd/touch_ads7843.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

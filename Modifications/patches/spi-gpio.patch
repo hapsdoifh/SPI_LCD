@@ -1,0 +1,31 @@
+--- a/drivers/spi/spi-gpio.c
++++ b/drivers/spi/spi-gpio.c
+@@ -82,6 +82,10 @@
+ #define SPI_MOSI_GPIO	((pdata)->mosi)
+ #define SPI_SCK_GPIO	((pdata)->sck)
+ 
++//harry add
++#define SPI_DCX_GPIO ((pdata)->dcx)
++#define SPI_BUSY_GPIO ((pdata)->busy) 
++
+ #define SPI_N_CHIPSEL	((pdata)->num_chipselect)
+ 
+ #endif
+@@ -300,6 +304,16 @@
+ 	int value;
+ 
+ 	/* NOTE:  SPI_*_GPIO symbols may reference "pdata" */
++	 
++	//added 
++	if (SPI_DCX_GPIO != SPI_GPIO_NO_DCX) {
++ 		value = spi_gpio_alloc(SPI_DCX_GPIO, label, false);
++ 	}
++ 	if (SPI_BUSY_GPIO != SPI_GPIO_NO_BUSY) {
++ 		value = spi_gpio_alloc(SPI_BUSY_GPIO, label, true);
++ 	} 
++	//added
++
+ 
+ 	if (SPI_MOSI_GPIO != SPI_GPIO_NO_MOSI) {
+ 		value = spi_gpio_alloc(SPI_MOSI_GPIO, label, false);
+

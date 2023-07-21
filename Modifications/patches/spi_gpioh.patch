@@ -1,0 +1,25 @@
+--- a/include/linux/spi/spi_gpio.h
++++ b/include/linux/spi/spi_gpio.h
+@@ -41,6 +41,10 @@
+ #define SPI_GPIO_NO_MISO		((unsigned long)-1l)
+ #define SPI_GPIO_NO_MOSI		((unsigned long)-1l)
+ 
++//added code
++#define SPI_GPIO_NO_DCX ((unsigned long)-1l) 
++#define SPI_GPIO_NO_BUSY ((unsigned long)-1l) 
++
+ /**
+  * struct spi_gpio_platform_data - parameter for bitbanged SPI master
+  * @sck: number of the GPIO used for clock output
+@@ -67,6 +71,10 @@
+ 	unsigned long	miso;
+ 
+ 	u16		num_chipselect;
++
++	//added code for lcd
++	unsigned dcx;
++	unsigned busy;
+ };
+ 
+ #endif /* __LINUX_SPI_GPIO_H */
+

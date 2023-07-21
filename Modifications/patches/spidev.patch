@@ -1,0 +1,64 @@
+--- a/drivers/spi/spidev.c
++++ b/drivers/spi/spidev.c
+@@ -33,6 +33,11 @@
+ 
+ #include <linux/spi/spi.h>
+ #include <linux/spi/spidev.h>
++
++//added include 7/18
++#include <linux/spi/spi_gpio.h>
++#include <linux/gpio.h>
++//added include
+ 
+ #include <linux/uaccess.h>
+ 
+@@ -344,6 +349,26 @@
+ 	return memdup_user(u_ioc, tmp);
+ }
+ 
++//added code 7/18
++static inline u32 spidev_get_pin(const struct spi_device *spi,u32 pin)
++{
++	u32 sigl = 0;
++	u32 gpio = SPI_DCX_BIT_GPIO_PIN & pin;
++	if (pin != SPI_GPIO_NO_BUSY) {
++		if (!!gpio_get_value(gpio)) sigl = 1;
++ 	}
++	return sigl;
++}
++static inline void spidev_set_pin(const struct spi_device *spi,u32 pin)
++{
++	u32 sigl = SPI_DCX_BIT_SIGNAL & pin;
++	u32 gpio = SPI_DCX_BIT_GPIO_PIN & pin;
++	if (pin != SPI_GPIO_NO_DCX) {
++		gpio_set_value(gpio,!! sigl);
++	}
++} 
++//added code
++
+ static long
+ spidev_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
+ {
+@@ -467,6 +492,21 @@
+ 		}
+ 		break;
+ 
++	case SPI_IOC_RD_SIGNAL_BUSY:
++		retval = get_user(tmp, (__u32 __user *)arg);
++		 if (retval == 0) {
++			tmp = spidev_get_pin(spi,tmp);
++			retval = __put_user(tmp, (__u32 __user *)arg);
++		}
++ 		break; 
++
++	case SPI_IOC_WR_SIGNAL_DCX:
++		retval = get_user(tmp, (__u32 __user *)arg);
++		 if (retval == 0) {
++			spidev_set_pin(spi,tmp);
++		}
++ 		break; 
++
+ 	default:
+ 		/* segmented and/or full-duplex I/O request */
+ 		/* Check message and copy into scratch area */
+

@@ -1,0 +1,16 @@
+--- a/include/uapi/linux/spi/spidev.h
++++ b/include/uapi/linux/spi/spidev.h
+@@ -138,6 +138,12 @@
+ #define SPI_IOC_RD_MODE32		_IOR(SPI_IOC_MAGIC, 5, __u32)
+ #define SPI_IOC_WR_MODE32		_IOW(SPI_IOC_MAGIC, 5, __u32)
+ 
++//added code 7/18
++#define SPI_DCX_BIT_SIGNAL 0x80000000
++#define SPI_DCX_BIT_GPIO_PIN 0x7fffffff
++#define SPI_IOC_RD_SIGNAL_BUSY _IOR(SPI_IOC_MAGIC,6,__u32)
++#define SPI_IOC_WR_SIGNAL_DCX _IOW(SPI_IOC_MAGIC,6,__u32)
++//added code
+ 
+ 
+ #endif /* SPIDEV_H */
+
